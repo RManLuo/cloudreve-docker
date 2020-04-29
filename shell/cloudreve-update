@@ -13,7 +13,7 @@ if [ ! -n "$path" ]; then
 fi
 
 if [ ! -n "$host" ]; then
-  port="127.0.0.1"
+  host="127.0.0.1"
 fi
 
 if [ ! -n "$port" ]; then
