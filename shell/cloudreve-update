@@ -20,7 +20,7 @@ if [ ! -n "$port" ]; then
   port="83"
 fi
 echo $name
-git clone https://github.com/RManLuo/cloudreve-docker.git /tmp
+git clone https://github.com/RManLuo/cloudreve-docker.git /tmp/cloudreve-docker
 docker build -t cloudreve /tmp/cloudreve-docker
 rm -rf /tmp/cloudreve-docker
 docker stop $name
