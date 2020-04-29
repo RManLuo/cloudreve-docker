@@ -1,7 +1,8 @@
 #!/bin/bash
 name=$1
 path=$2
-port=$3
+host=$3
+port=$4
 
 if [ ! -n "$name" ]; then
   name="own"
@@ -9,6 +10,10 @@ fi
 
 if [ ! -n "$path" ]; then
   path="/root"
+fi
+
+if [ ! -n "$host" ]; then
+  port="127.0.0.1"
 fi
 
 if [ ! -n "$port" ]; then
@@ -22,7 +27,7 @@ docker stop $name
 docker rm $name
 docker run -d \
 	--name $name \
-	-p "${port}:83" \
+	-p "${host}:${port}:83" \
 	-v "${path}/${name}/log:/core/log" \
 	-v "${path}/${name}/uploads:/core/uploads" \
 	-v "${path}/${name}/db:/core/db" \
